@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=10]
 [ext_resource path="res://UI/PauseMenu.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Enemies/wizowd_mush.tscn" type="PackedScene" id=12]
+[ext_resource path="res://UI/GameOver.gd" type="Script" id=13]
+[ext_resource path="res://UI/GameOver.tscn" type="PackedScene" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -504,12 +506,6 @@ texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( -208, -144, 528, 368 )
 
-[node name="Background2" type="Sprite" parent="."]
-position = Vector2( 160, 88 )
-texture = ExtResource( 3 )
-region_enabled = true
-region_rect = Rect2( -208, -144, 528, 368 )
-
 [node name="DirtPathTileMap" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
@@ -626,7 +622,7 @@ position = Vector2( -24, 48 )
 [node name="Wizowd" type="YSort" parent="YSort"]
 
 [node name="wizowd_mush" parent="YSort/Wizowd" instance=ExtResource( 12 )]
-position = Vector2( 26, -32 )
+position = Vector2( 348, 223 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -635,9 +631,12 @@ pause_mode = 2
 visible = false
 
 [node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 8 )]
-margin_left = 5.0
-margin_top = 4.0
-margin_right = 91.0
-margin_bottom = 16.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 87.0
+margin_bottom = 13.0
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource( 14 )]
+script = ExtResource( 13 )
 
 [editable path="Camera2D"]

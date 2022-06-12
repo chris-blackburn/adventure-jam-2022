@@ -69,6 +69,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 19 )
 animation = "Animation"
+frame = 1
 playing = true
 
 [node name="ShadowSprite" type="Sprite" parent="."]
@@ -88,7 +89,7 @@ position = Vector2( 0, -13 )
 shape = SubResource( 8 )
 
 [node name="Stats" parent="." instance=ExtResource( 5 )]
-max_health = 2
+max_health = 4
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 6 )]
 visible = false
