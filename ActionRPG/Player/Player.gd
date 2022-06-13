@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 const PlayerHurtSound = preload("res://Player/PlayerHurtSound.tscn")
 
-
 export var ACCELERATION = 500
 export var MAX_SPEED = 80
 export var ROLL_SPEED = 120
@@ -26,10 +25,12 @@ onready var animationState = animationTree.get("parameters/playback")
 onready var swordHitbox = $HitBoxPivot/SwordHitBox
 onready var hurtBox = $HurtBox
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
+onready var deathScreen = $DeathScreen
 
 func _ready():
 	randomize()
-	stats.connect("no_health", self, "queue_free")
+	stats.connect("no_health", self, "is_dead")
+	#stats.connect("no_health", self, "queue_free")
 	animationTree.active = true
 	swordHitbox.knockback_vector = roll_vector
 
@@ -94,6 +95,8 @@ func attack_animation_finished():
 	state = MOVE
 
 
+func is_dead():
+	get_tree().change_scene("res://UI/DeathScene.tscn")
 
 func _on_HurtBox_area_entered(area):
 	stats.health -= area.damage
