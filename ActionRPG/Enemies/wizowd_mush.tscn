@@ -10,21 +10,21 @@
 [ext_resource path="res://Overlap/SoftCollision.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Enemies/WanderController.tscn" type="PackedScene" id=9]
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 1 )
 region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 32, 32, 32 )
+region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=19]
 animations = [ {
-"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
 "loop": true,
 "name": "Animation",
 "speed": 5.0
@@ -34,17 +34,17 @@ animations = [ {
 radius = 4.0
 
 [sub_resource type="CapsuleShape2D" id=8]
-radius = 6.0
-height = 6.0
+radius = 8.0
+height = 14.0
 
 [sub_resource type="CircleShape2D" id=9]
 radius = 72.0278
 
 [sub_resource type="CircleShape2D" id=10]
-radius = 4.0
+radius = 9.0
 
 [sub_resource type="CircleShape2D" id=11]
-radius = 4.0
+radius = 7.07107
 
 [sub_resource type="Animation" id=13]
 length = 0.001
@@ -62,14 +62,11 @@ length = 0.1
 position = Vector2( 0, -16 )
 collision_layer = 16
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 19 )
 animation = "Animation"
-frame = 1
+frame = 2
 playing = true
 
 [node name="ShadowSprite" type="Sprite" parent="."]
@@ -81,11 +78,10 @@ visible = false
 shape = SubResource( 7 )
 
 [node name="HurtBox" parent="." instance=ExtResource( 4 )]
-visible = false
 collision_layer = 8
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2( 0, -13 )
+position = Vector2( 0, -1 )
 shape = SubResource( 8 )
 
 [node name="Stats" parent="." instance=ExtResource( 5 )]
@@ -98,19 +94,21 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="HitBox" parent="." instance=ExtResource( 7 )]
-visible = false
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2( 0, -15 )
+visible = false
 shape = SubResource( 10 )
 
 [node name="SoftCollision" parent="." instance=ExtResource( 8 )]
+visible = false
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
+position = Vector2( 0, 15 )
 shape = SubResource( 11 )
 
 [node name="WanderController" parent="." instance=ExtResource( 9 )]
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 13 )
