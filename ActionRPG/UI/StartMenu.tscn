@@ -19,6 +19,13 @@ texture = ExtResource( 2 )
 expand = true
 stretch_mode = 2
 
+[node name="Title" type="Label" parent="."]
+margin_left = 88.0
+margin_top = 24.0
+margin_right = 240.0
+margin_bottom = 38.0
+text = "COOL GAME TITLE HERE"
+
 [node name="Player" type="Sprite" parent="."]
 position = Vector2( 200, 96 )
 texture = ExtResource( 3 )
@@ -38,11 +45,11 @@ hframes = 5
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -68.0
+margin_top = -91.0
 margin_right = 63.0
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
-margin_right = 63.0
+margin_right = 65.0
 margin_bottom = 20.0
 focus_neighbour_top = NodePath("../QuitButton")
 text = "Start"
@@ -50,79 +57,133 @@ text = "Start"
 [node name="SoundsButton" type="Button" parent="VBoxContainer"]
 pause_mode = 2
 margin_top = 24.0
-margin_right = 63.0
+margin_right = 65.0
 margin_bottom = 44.0
 text = "Sounds"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="ControlsBtn" type="Button" parent="VBoxContainer"]
 margin_top = 48.0
-margin_right = 63.0
+margin_right = 65.0
 margin_bottom = 68.0
+text = "Controls"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+margin_top = 72.0
+margin_right = 65.0
+margin_bottom = 92.0
 focus_neighbour_bottom = NodePath("../StartButton")
 text = "Quit"
 
-[node name="Title" type="Label" parent="."]
-margin_left = 88.0
-margin_top = 24.0
-margin_right = 240.0
-margin_bottom = 38.0
-text = "COOL GAME TITLE HERE"
+[node name="OptionsOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.141176, 0.12549, 0.12549, 0.513726 )
 
 [node name="SoundsContainer" type="CenterContainer" parent="."]
 visible = false
-margin_left = 96.0
-margin_top = 38.0
-margin_right = 222.0
-margin_bottom = 133.0
+margin_left = 101.0
+margin_top = 7.0
+margin_right = 227.0
+margin_bottom = 178.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SoundsContainer"]
-margin_left = 40.0
-margin_right = 86.0
-margin_bottom = 110.0
+margin_left = 15.0
+margin_top = 9.0
+margin_right = 111.0
+margin_bottom = 161.0
 
-[node name="Label" type="Label" parent="SoundsContainer/VBoxContainer"]
-margin_right = 42.0
+[node name="Sounds" type="Label" parent="SoundsContainer/VBoxContainer"]
+margin_right = 96.0
 margin_bottom = 14.0
-text = "Sounds"
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Sound Controls"
+align = 1
 
-[node name="Spacer3" type="Control" parent="SoundsContainer/VBoxContainer"]
+[node name="MasterLabel" type="Label" parent="SoundsContainer/VBoxContainer"]
 margin_top = 18.0
-margin_right = 42.0
-margin_bottom = 18.0
+margin_right = 96.0
+margin_bottom = 32.0
+text = "Master"
+align = 1
 
 [node name="Master" type="HSlider" parent="SoundsContainer/VBoxContainer"]
-margin_top = 22.0
-margin_right = 42.0
-margin_bottom = 38.0
+margin_top = 36.0
+margin_right = 96.0
+margin_bottom = 52.0
 focus_neighbour_top = NodePath("../Back")
 min_value = -80.0
 max_value = 0.0
 
-[node name="Spacer2" type="Control" parent="SoundsContainer/VBoxContainer"]
-margin_top = 42.0
-margin_right = 42.0
-margin_bottom = 42.0
+[node name="MusicLabel" type="Label" parent="SoundsContainer/VBoxContainer"]
+margin_top = 56.0
+margin_right = 96.0
+margin_bottom = 70.0
+text = "Music"
+align = 1
+valign = 1
 
 [node name="Music" type="HSlider" parent="SoundsContainer/VBoxContainer"]
-margin_top = 46.0
-margin_right = 42.0
-margin_bottom = 62.0
+margin_top = 74.0
+margin_right = 96.0
+margin_bottom = 90.0
 min_value = -80.0
 max_value = 0.0
 
-[node name="Spacer" type="Control" parent="SoundsContainer/VBoxContainer"]
-margin_top = 66.0
-margin_right = 42.0
-margin_bottom = 66.0
+[node name="EffectsLabel" type="Label" parent="SoundsContainer/VBoxContainer"]
+margin_top = 94.0
+margin_right = 96.0
+margin_bottom = 108.0
+text = "Effects"
+align = 1
+valign = 1
 
 [node name="Effects" type="HSlider" parent="SoundsContainer/VBoxContainer"]
-margin_top = 70.0
-margin_right = 42.0
-margin_bottom = 86.0
+margin_top = 112.0
+margin_right = 96.0
+margin_bottom = 128.0
 min_value = -80.0
 max_value = 0.0
 
 [node name="Back" type="Button" parent="SoundsContainer/VBoxContainer"]
+margin_top = 132.0
+margin_right = 96.0
+margin_bottom = 152.0
+focus_neighbour_bottom = NodePath("../Master")
+text = "Back"
+
+[node name="ControlsContainer" type="CenterContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlsContainer"]
+margin_left = 80.0
+margin_top = 19.0
+margin_right = 239.0
+margin_bottom = 160.0
+
+[node name="ControlsLabel" type="Label" parent="ControlsContainer/VBoxContainer"]
+margin_right = 155.0
+margin_bottom = 116.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Controls"
+align = 1
+
+[node name="Controls" type="Label" parent="ControlsContainer/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Up: W or Up Arrow
+Down: S or Down Arrow
+Left: A or Left Arrow
+Right: D or Right Arrow
+Roll: K or Space Bar or Z
+Attack: J or Left Click or X"
+align = 1
+
+[node name="BackBtn" type="Button" parent="ControlsContainer/VBoxContainer"]
 margin_top = 90.0
 margin_right = 42.0
 margin_bottom = 110.0
@@ -133,3 +194,13 @@ text = "Back"
 stream = ExtResource( 5 )
 autoplay = true
 bus = "Music"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/SoundsButton" to="." method="_on_SoundsButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlsBtn" to="." method="_on_ControlsBtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="value_changed" from="SoundsContainer/VBoxContainer/Master" to="." method="_on_Master_value_changed"]
+[connection signal="value_changed" from="SoundsContainer/VBoxContainer/Music" to="." method="_on_Music_value_changed"]
+[connection signal="value_changed" from="SoundsContainer/VBoxContainer/Effects" to="." method="_on_Effects_value_changed"]
+[connection signal="pressed" from="SoundsContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="ControlsContainer/VBoxContainer/BackBtn" to="." method="_on_Back_pressed"]

@@ -4,6 +4,8 @@ onready var resumeBtn = $PauseContainer/VBoxContainer/ResumeBtn
 onready var masterSlider = $SoundsContainer/VBoxContainer/Master
 onready var musicSlider = $SoundsContainer/VBoxContainer/Music
 onready var effectSlider = $SoundsContainer/VBoxContainer/Effects
+onready var controlsBtn = $ControlsContainer/VBoxContainer
+onready var controlBackBtn = $ControlsContainer/VBoxContainer/BackBtn
 onready var mainMenuBtn = $RestartContainer/VBoxContainer/HBoxContainer/Yes
 
 var is_paused = false setget set_is_paused
@@ -41,7 +43,10 @@ func _on_MainMenuBtn_pressed() -> void:
 
 func _on_Back_pressed() -> void:
 	$PauseContainer.visible = !$PauseContainer.visible
-	$SoundsContainer.visible = !$SoundsContainer.visible
+	if $SoundsContainer.visible:
+		$SoundsContainer.visible = !$SoundsContainer.visible
+	else:
+		$ControlsContainer.visible = !$ControlsContainer.visible	
 	resumeBtn.grab_focus()
 
 func _on_Yes_pressed() -> void:
@@ -63,3 +68,8 @@ func _on_Music_value_changed(value: float) -> void:
 func _on_Effects_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Effects"), value)
 	VolumeSliders.effectVol = value
+
+func _on_ControlsBtn_pressed() -> void:
+	$PauseContainer.visible = !$PauseContainer.visible
+	$ControlsContainer.visible = !$ControlsContainer.visible
+	controlBackBtn.grab_focus()
