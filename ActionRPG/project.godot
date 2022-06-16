@@ -19,6 +19,7 @@ config/windows_native_icon="res://Autistic_shrek.ico"
 [autoload]
 
 PlayerStats="*res://Player/PlayerStats.tscn"
+VolumeSliders="*res://VolumeSliders.gd"
 
 [display]
 

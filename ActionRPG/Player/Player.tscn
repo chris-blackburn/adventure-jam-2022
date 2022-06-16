@@ -21,6 +21,7 @@ height = 4.0
 [sub_resource type="Animation" id=26]
 resource_name = "AttackDown"
 length = 0.4
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -89,6 +90,7 @@ tracks/4/keys = {
 [sub_resource type="Animation" id=27]
 resource_name = "AttackLeft"
 length = 0.4
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -157,6 +159,7 @@ tracks/4/keys = {
 [sub_resource type="Animation" id=28]
 resource_name = "AttackRight"
 length = 0.4
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -225,6 +228,7 @@ tracks/4/keys = {
 [sub_resource type="Animation" id=29]
 resource_name = "AttackUp"
 length = 0.4
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -669,6 +673,7 @@ blend_point_4/node = SubResource( 37 )
 blend_point_4/pos = Vector2( 0, 1.1 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id=12]
 animation = "IdleLeft"
@@ -759,7 +764,7 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id=17]
 states/Attack/node = SubResource( 34 )
-states/Attack/position = Vector2( 494, 243 )
+states/Attack/position = Vector2( 494, 242 )
 states/Idle/node = SubResource( 16 )
 states/Idle/position = Vector2( 494, 150 )
 states/Roll/node = SubResource( 47 )
@@ -768,6 +773,7 @@ states/Run/node = SubResource( 23 )
 states/Run/position = Vector2( 745, 150 )
 transitions = [ "Idle", "Run", SubResource( 24 ), "Run", "Idle", SubResource( 25 ), "Idle", "Attack", SubResource( 35 ), "Attack", "Idle", SubResource( 36 ), "Roll", "Idle", SubResource( 48 ), "Idle", "Roll", SubResource( 49 ) ]
 start_node = "Idle"
+graph_offset = Vector2( -209.071, 109.068 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=18]
 
@@ -872,13 +878,12 @@ anims/RunUp = SubResource( 5 )
 tree_root = SubResource( 17 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 18 )
-parameters/Attack/blend_position = Vector2( 0, 1 )
+parameters/Attack/blend_position = Vector2( 0.00210309, 0.00635839 )
 parameters/Idle/blend_position = Vector2( 0, 1 )
-parameters/Roll/blend_position = Vector2( 0, 1 )
+parameters/Roll/blend_position = Vector2( -0.00105155, 1.08599 )
 parameters/Run/blend_position = Vector2( 0, 1 )
 
 [node name="HitBoxPivot" type="Position2D" parent="."]
-visible = false
 position = Vector2( 0, -4 )
 __meta__ = {
 "_gizmo_extents_": 8.0
@@ -903,6 +908,7 @@ shape = SubResource( 50 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+bus = "Effects"
 
 [node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 55 )
