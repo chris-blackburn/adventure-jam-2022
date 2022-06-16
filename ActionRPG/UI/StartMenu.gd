@@ -1,6 +1,6 @@
 extends Control
 
-onready var startButton = $VBoxContainer/StartButtonStartButton
+onready var startButton = $VBoxContainer/StartButton
 onready var optionsButton = $VBoxContainer/OptionsButton
 onready var quitButton = $VBoxContainer/QuitButton
 onready var backgroundMusic = $BackgroundMusic
