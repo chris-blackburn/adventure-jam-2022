@@ -21,6 +21,7 @@ height = 4.0
 [sub_resource type="Animation" id=26]
 resource_name = "AttackDown"
 length = 0.4
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -89,6 +90,7 @@ tracks/4/keys = {
 [sub_resource type="Animation" id=27]
 resource_name = "AttackLeft"
 length = 0.4
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -157,6 +159,7 @@ tracks/4/keys = {
 [sub_resource type="Animation" id=28]
 resource_name = "AttackRight"
 length = 0.4
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -225,6 +228,7 @@ tracks/4/keys = {
 [sub_resource type="Animation" id=29]
 resource_name = "AttackUp"
 length = 0.4
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -874,7 +878,7 @@ anims/RunUp = SubResource( 5 )
 tree_root = SubResource( 17 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 18 )
-parameters/Attack/blend_position = Vector2( 0.00105155, 1.07197 )
+parameters/Attack/blend_position = Vector2( 0.00210309, 0.00635839 )
 parameters/Idle/blend_position = Vector2( 0, 1 )
 parameters/Roll/blend_position = Vector2( -0.00105155, 1.08599 )
 parameters/Run/blend_position = Vector2( 0, 1 )
