@@ -12,7 +12,8 @@ config_version=4
 
 config/name="ActionRPG"
 run/main_scene="res://UI/StartMenu.tscn"
-boot_splash/image="res://Autisitic_shrek.png"
+boot_splash/image="res://game_logo.png"
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://Autisitic_shrek.png"
 config/windows_native_icon="res://Autistic_shrek.ico"
 
